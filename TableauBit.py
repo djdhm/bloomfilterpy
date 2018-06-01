@@ -18,5 +18,5 @@ class TableauBit:
     def ajouter(self,indice):
 	numCase=indice//8
 	numBit=indice % 8
-	self.tableau[numCase]|(1<<numBit)
+	self.tableau[numCase]=self.tableau[numCase]|(1<<numBit)
 

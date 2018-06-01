@@ -13,13 +13,21 @@ class BloomFilter:
             x=bibhash.hash64(adresse,i)
             self.tab_bit.ajouter(x%self.taille)
 
-
+	
     def existe(self, adresse):
         #Verifier l'existence de l'element grace au fct de hashge 
         for cpt in xrange(self.nb_fcthash):
             indice=bibhash.hash64(adresse,cpt)
-
-            if(not self.tab_bit.existe(indice%self.taille)==0):
+            if(not self.tab_bit.existe(indice%self.taille)):
                 return False	
         return True
-
+	
+    def hash(self, adresse):
+	prop=[]
+	sub=""
+	for x in adresse:
+		if(x=="."):
+			prop.push(chaine%self.taille)
+		else:
+			chaine+=x
+		
